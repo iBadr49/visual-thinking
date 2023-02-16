@@ -1,0 +1,22 @@
+{
+  "name": "visual-thinking",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-netlify": "^2.0.4",
+    "@sveltejs/kit": "^1.5.0",
+    "svelte": "^3.54.0",
+    "vite": "^4.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fdnd/components": "^0.0.7",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0"
+  }
+}

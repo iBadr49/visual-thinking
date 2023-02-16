@@ -1,13 +1,38 @@
-![image](https://user-images.githubusercontent.com/1061632/191292733-fe7516d2-aaf9-4fc6-bbed-14fbd9d26dd5.png)
+# create-svelte
 
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-Tekenen is een manier om simpel en to-the-point te communiceren en wordt in de praktijk steeds vaker gebruikt als tool voor interne en externe communicatie. ‘Visual thinking in het hbo’ wordt een platform met onderwijsmateriaal voor docenten en studenten om visual thinking in hun lessen en tijdens de studie toe te kunnen passen.
+## Creating a project
 
-Aan de hand van verschillende werkvormen, mini-cursussen en kennisclips leren, zowel studenten als docenten, visueel denken en communiceren.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Resources
-[Project board](https://github.com/orgs/fdnd-agency/projects/7) 
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-[Styleguide](https://github.com/fdnd-projects/visual-thinking/blob/0bcfc55d8c25483d18e5c6629ad7fa7e99ca7b51/vtHBO-styleguide-v1.pdf)  
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-[Prototype / content](https://www.figma.com/proto/BcmZb4clafkTX1UM1GN3F2/Prototype-v3-Visual-Thinking-in-het-HBO?node-id=21%3A995&starting-point-node-id=21%3A995&scaling=scale-down)  
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
