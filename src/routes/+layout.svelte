@@ -15,6 +15,5 @@
 
 		<slot />
 
-		<Footer />
 	</Wrapper>
 </Branding>
