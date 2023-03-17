@@ -8,6 +8,7 @@ export async function GET({ url }) {
   const query = gql`
     query getMethod($id: ID!) {
       method(where: { id: $id }) {
+        id
         slug
         title
         description {

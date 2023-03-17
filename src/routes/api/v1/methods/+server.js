@@ -11,6 +11,7 @@ export async function GET({ url }) {
   const query = gql`
     query getMethods($first: Int, $skip: Int, $orderBy: MethodOrderByInput) {
       methods(first: $first, skip: $skip, orderBy: $orderBy) {
+        id
         slug
         title
         description {

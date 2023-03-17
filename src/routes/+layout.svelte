@@ -1,5 +1,5 @@
 <script>
-	import { Footer, Branding, Wrapper, Nav } from '@fdnd/components';
+	import { Branding, Wrapper, Nav } from '@fdnd/components';
 
 	const nav = {
 		Menu: {
