@@ -23,16 +23,21 @@ export async function GET({ url }) {
 }
 
 export async function POST({ request }) {
-  const formdata = await request.json()
-  let errors = new Array()
+  const requestData = await request.json()
+  let errors = []
 
-  // Run some checks!
-  if (typeof formdata.author !== 'string') {
-    console.log('Got error!')
-    errors.push('author should have a string value')
+  // Controleer de request data op juistheid
+  if (!requestData.author || typeof requestData.author !== 'string') {
+    errors.push({ field: 'author', message: 'author should exist and have a string value' })
+  }
+  if (!requestData.text || typeof requestData.text !== 'string') {
+    errors.push({ field: 'text', message: 'text should exist and have a string value' })
+  }
+  if (!requestData.methodId) {
+    errors.push({ field: 'methodId', message: 'methodId should exist' })
   }
 
-  // If we have errors, send them to the user
+  // Als we hier al errors hebben in de form data sturen we die terug
   if (errors.length > 0) {
     return new Response(
       JSON.stringify({
@@ -42,8 +47,10 @@ export async function POST({ request }) {
         errors: errors,
       })
     )
-    // No errors, add the comment
+
+    // Geen errors, voeg het comment toe
   } else {
+    // Bereid de mutatie voor
     const mutation = gql`
       mutation createComment($author: String!, $text: String!, $methodId: ID!) {
         createComment(data: { author: $author, text: $text, method: { connect: { id: $methodId } } }) {
@@ -52,10 +59,7 @@ export async function POST({ request }) {
       }
     `
 
-    const data = await hygraph.request(mutation, { ...formdata }).catch((error) => {
-      errors.push(error)
-    })
-
+    // Bereid publiceren voor
     const publication = gql`
       mutation publishComment($id: ID!) {
         publishComment(where: { id: $id }, to: PUBLISHED) {
@@ -64,17 +68,33 @@ export async function POST({ request }) {
       }
     `
 
-    const pubData = await hygraph.request(publication, { id: data.createComment.id }).catch((error) => {
-      errors.push(error)
-    })
+    // Voer de mutatie uit
+    const data = await hygraph
+      .request(mutation, { ...requestData })
+      // Stuur de response met created id door
+      .then((data) => {
+        return (
+          hygraph
+            // Voer de publicatie uit met created id
+            .request(publication, { id: data.createComment.id ?? null })
+            // Vang fouten af bij het publiceren
+            .catch((error) => {
+              errors.push({ field: 'HyGraph', message: error })
+            })
+        )
+      })
+      // Vang fouten af bij de mutatie
+      .catch((error) => {
+        errors.push({ field: 'HyGraph', message: error })
+      })
 
     return new Response(
       JSON.stringify({
         method: 'POST',
         working: 'yes',
-        success: pubData.publishComment !== undefined,
-        data: data,
-        pubData: pubData,
+        success: data && data.publishComment ? true : false,
+        data: data && data.publishComment,
+        errors: errors,
       }),
       responseInit
     )
