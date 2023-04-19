@@ -21,6 +21,14 @@ export async function GET({ params }) {
         duration
         template {
           url
+          height
+          width
+          original: url
+          small: url(transformation: { image: { resize: { width: 500, fit: clip } } })
+          originalAsWebP: url(transformation: { document: { output: { format: webp } } })
+          smallAsWebP: url(
+            transformation: { image: { resize: { width: 500, fit: clip } }, document: { output: { format: webp } } }
+          )
         }
         steps {
           title
@@ -29,10 +37,26 @@ export async function GET({ params }) {
           }
           visual {
             url
+            height
+            width
+            original: url
+            small: url(transformation: { image: { resize: { width: 500, fit: clip } } })
+            originalAsWebP: url(transformation: { document: { output: { format: webp } } })
+            smallAsWebP: url(
+              transformation: { image: { resize: { width: 500, fit: clip } }, document: { output: { format: webp } } }
+            )
           }
         }
         examples {
           url
+          height
+          width
+          original: url
+          small: url(transformation: { image: { resize: { width: 500, fit: clip } } })
+          originalAsWebP: url(transformation: { document: { output: { format: webp } } })
+          smallAsWebP: url(
+            transformation: { image: { resize: { width: 500, fit: clip } }, document: { output: { format: webp } } }
+          )
         }
         sources {
           title
