@@ -1,0 +1,50 @@
+<%- include('./partials/headDetail') %>
+
+    <nav>
+        <ul>
+            <a href="/method/<%= method.slug %>/beschrijving">
+                <li>
+                    <h2 class="h2-detail">Beschrijving</h2>
+                </li>
+            </a>
+            </a>
+            <a href="/method/<%= method.slug %>/stappenplan">
+                <li>
+                    <h2 class="h2-detail">Stappenplan</h2>
+                </li>
+            </a>
+            </a>
+            <li>
+                <h2 class="bold">Voorbeelden</h2>
+            </li>
+            <a href="/method/<%= method.slug %>/form?id=<%= method.id %>">
+                <li>
+                    <h2 class="h2-detail">Feedback</h2>
+                </li>
+            </a>
+        </ul>
+      </nav>
+      <%- include('./partials/viewCount') %>
+    </section>
+
+    <section class="carousel">
+        <button class="carousel-button-left">
+            <img src="/assets/arrows.svg" alt="">
+        </button>
+        <section class="carousel-container">
+            <ul class="carousel-list">
+                <% method.examples.forEach(example=> { %>
+                    <li class="carousel-slide current-slide">
+                        <img class="carousel-img" src="<%- example?.url %>" alt="">
+                    </li>
+                    <% }) %>
+            </ul>
+
+        </section>
+        <button class="carousel-button-right">
+            <img src="/assets/arrows.svg" alt="">
+        </button>
+    </section>
+    </main>
+    </body>
+    <%- include('./partials/foot') %>

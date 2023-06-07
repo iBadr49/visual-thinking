@@ -1,0 +1,81 @@
+<%- include('./partials/head') %>
+
+<!-- Content -->
+<section class="intro">
+  <article class="intro-text">
+    <h1>Tekenmethodes</h1>
+    <p class="lowercase">
+      Welkom op onze pagina over Visual Thinking! Visual Thinking is een super
+      toffe manier om informatie te begrijpen, te ordenen en te delen met
+      anderen door middel van plaatjes in plaats van alleen maar woorden. Dit
+      maakt het gemakkelijker om complexe ideeën te begrijpen en te delen met
+      anderen. <br />
+      <br />
+      Op deze pagina vind je verschillende Visual Thinking tekenmethodes die je
+      kunt gebruiken om je creativiteit en productiviteit te vergroten. Of je nu
+      een student bent, of gewoon geïnteresseerd bent in Visual Thinking, wij
+      hebben de juiste tools en technieken voor jou. <br />
+      <br />
+      Hier vind je ook een heleboel tips en trucs voor het gebruik van Visual
+      Thinking in je dagelijks leven en je studie. Dus waar wacht je nog op?
+      Ontdek vandaag nog de kracht van Visual Thinking en maak je ideeën
+      visueel!
+    </p>
+  </article>
+</section>
+
+<section class="categories-mobile">
+  <label for="touch"><span id="menu-icon">Categorieën</span></label>
+  <input type="checkbox" id="touch" />
+  <ul class="slide">
+    <li><a href="#">Onderzoeken en begrijpen</a></li>
+    <li><a href="#">Organiseren en plannen</a></li>
+    <li><a href="#">Leren over anderen</a></li>
+    <li><a href="#">Leren over jezelf</a></li>
+    <li><a href="#">Communiceren en presenteren</a></li>
+    <li><a href="#">Creatief denken</a></li>
+  </ul>
+</section>
+
+<section class="categories">
+  <section class="categories-container">
+    <ul class="categorie-names">
+      <li><a href="#">Onderzoeken en begrijpen</a></li>
+      <li><a href="#">Organiseren en plannen</a></li>
+      <li><a href="#">Leren over anderen</a></li>
+      <li><a href="#">Leren over jezelf</a></li>
+      <li><a href="#">Communiceren en presenteren</a></li>
+      <li><a href="#">Creatief denken</a></li>
+    </ul>
+  </section>
+</section>
+
+<main class="tekenmethodes-main">
+  <article class="methods">
+    <% if (methods && methods.length > 0) { %> <% methods.forEach((method,
+    index) => { %>
+    <section class="method-container" data-index="<%= index %>">
+      <a
+        href="/method/<%= method.slug %>"
+        class="link-detail-page"
+      >
+        <% if (method.template && method.template.originalAsWebP) { %>
+        <img
+          class="<%= method.categories[0].title.replaceAll(" ", "-") %>"
+          src="<%= method.template.originalAsWebP %>"
+          alt="Voorbeeld van <%= method.title %>"
+          loading="lazy"
+        />
+        <% } else { %>
+        <img class="<%= method.categories[0].title.replaceAll(" ", "-") %>" src="/assets/placeholder.webp" alt="Placeholder Image" loading="lazy" />
+        <% } %>
+        <section class="methods-titles">
+          <h2><%= method.title %></h2>
+        </section>
+      </a>
+    </section>
+    <% }); %> <% } %>
+  </article>
+</main>
+
+<%- include('./partials/foot') %>

@@ -1,0 +1,35 @@
+<%- include('./partials/head') %>
+
+<body>
+
+  <main class="tiproom">
+    <h1>Tekentips</h1>
+    <section>
+      <article class="tiproom-tips">
+        <ul class="tiproom-message"></ul>
+      </article>
+      <form class="tiproom-form">
+        <h2>Geef een tip</h2>
+
+        <label for="name">Naam</label>
+        <textarea required class="name" type="text" autocomplete="additional-name" placeholder="Vul hier je naam in..." name="naam" id="naam"></textarea>
+        
+        <label for="tip">Tip</label>
+        <textarea required class="tip" type="text" autocomplete="off" placeholder="Vul hier je tip in..." name="tip" id="tip"></textarea>
+        </label>
+
+        <button class="tiproom-form-button" type="submit">
+          <img src="./assets/send-button-vt.svg"/>
+          </button>
+
+      </form>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/scripts/tipruimte.js"></script>
+</body>
+</html>
+
+
+<%- include('./partials/foot') %>

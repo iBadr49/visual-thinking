@@ -1,0 +1,38 @@
+<%- include('./partials/headDetail') %>
+
+    <nav>
+        <ul>
+            <li>
+                <h2 class="bold">Beschrijving</h2>
+            </li>
+            </a>
+            <a href="/method/<%= method.slug %>/stappenplan">
+                <li>
+                    <h2 class="h2-detail">Stappenplan</h2>
+                </li>
+            </a>
+            <a href="/method/<%= method.slug %>/voorbeelden">
+                <li>
+                    <h2 class="h2-detail">Voorbeelden</h2>
+                </li>
+            </a>
+            <a href="/method/<%= method.slug %>/form?id=<%= method.id %>">
+                <li>
+                    <h2 class="h2-detail">Feedback</h2>
+                </li>
+            </a>
+        </ul>
+    </nav>
+    <%- include('./partials/viewCount') %>
+    </section>
+
+    <section class="flex-b">
+        <img class="template-url" src="<%= method.template?.url %>" alt="">
+        
+        <h3 class="text">
+            <%- method.description.html %>
+        </h3>
+    </section>
+    </main>
+    </body>
+    <%- include('./partials/foot') %>

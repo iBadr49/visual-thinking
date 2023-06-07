@@ -1,0 +1,90 @@
+<%- include('./partials/headSteps') %>
+
+    <nav>
+        <ul>
+            <a href="/method/<%= method.slug %>">
+                <li>
+                    <h2 class="h2-detail">Beschrijving</h2>
+                </li>
+            </a>
+            </a>
+            <li>
+                <h2 class="bold">Stappenplan</h2>
+            </li>
+            </a>
+            <a href="/method/<%= method.slug %>/voorbeelden">
+                <li>
+                    <h2 class="h2-detail">Voorbeelden</h2>
+                </li>
+            </a>
+            <a href="/method/<%= method.slug %>/form?id=<%= method.id %>">
+                <li>
+                    <h2 class="h2-detail">Feedback</h2>
+                </li>
+            </a>
+        </ul>
+      </nav>
+      <%- include('./partials/viewCount') %>
+    </section>
+
+    <img class="template-url" src="<%= method.template?.url %>" alt="">
+
+    
+    <section class="flex-s">
+        <section class="full-b">
+            <section class="tags-b">
+                <img class="icon" src="/assets/icon1.svg" alt="">
+                <% method.categories.forEach(category=> { %>
+                    <h2 class="tag">
+                        <%= category?.title %>
+                    </h2>
+                    <% }) %>
+            </section>
+
+            <section class="tags-b">
+                <img class="icon" src="/assets/icon2.svg" alt="">
+                <h2 class="tag">
+                    <%= method.material %>
+                </h2>
+            </section>
+
+            <section class="tags-b">
+                <img class="icon" src="/assets/icon3.svg" alt="">
+                <h2 class="tag">
+                    <%= method.duration %>
+                </h2>
+            </section>
+
+            <section class="tags-b">
+                <img class="icon" src="/assets/icon4.svg" alt="">
+                <h2 class="tag">
+                    Marco:)
+                </h2>
+            </section>
+
+            
+
+            <div class="buttondeel">
+                <h4>Stappenplan</h4>
+                <button id="stappenplanbutton">
+                <img src="/assets/pijl-hexagon-naar-beneden.svg" alt="Pijl naar beneden">
+                </button>
+            </div>
+            <div id="stappen" class="stappen">
+                <ol class="tobiashaha">
+                    <% method.steps.forEach(step => { %>
+                        <li>
+                            <h4><%- step.title %></h4>
+                            <div class="step-description">
+                                <%- step.description.html %>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ol>         
+            </div>
+        </section>
+    </section>
+    </main>
+    </body>
+
+    <%- include('./partials/foot') %>
