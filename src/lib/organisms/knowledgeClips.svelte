@@ -22,7 +22,7 @@
     <button on:click={previousButton} aria-label="Vorige Video">
       <img
         class="left-arrow"
-        src="./arrows_black.svg"
+        src="./images/arrows.svg"
         alt="Knop met pijl naar vorige video"
         loading="lazy"
       />
@@ -37,7 +37,7 @@
     <button on:click={nextButton} aria-label="Volgende Video">
       <img
         class="right-arrow"
-        src="./arrows_black.svg"
+        src="./images/arrows.svg"
         alt="Knop met pijl naar volgende video"
         loading="lazy"
       />

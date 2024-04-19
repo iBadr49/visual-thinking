@@ -2,7 +2,7 @@
   <nav>
     <a href="/">
       <img
-        src="/visual-thinking-logo-footer.svg"
+        src="/images/visual-thinking-hbo-logo-footer.svg"
         class="logo-footer"
         alt="Visual thinking logo"
       />
@@ -12,7 +12,7 @@
       <ul>
         <li>
           <a href="https://www.instagram.com/charley_muhren/">
-            <img src="/instagram.svg" alt="instagram" class="icon" />
+            <img src="/images/instagram.svg" alt="instagram" class="icon" />
             <span>Instagram</span>
           </a>
         </li>
@@ -20,13 +20,13 @@
           <a
             href="https://www.youtube.com/playlist?list=PLjrep0WCM97y9fznRYBVVKyDkzlT9fWEa"
           >
-            <img src="/youtube.svg" alt="youtube" class="icon" />
+            <img src="/images/youtube.svg" alt="youtube" class="icon" />
             <span>Youtube</span>
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/charleymuhren/">
-            <img src="/iconmonstr-linkedin-3.svg" alt="linkedIn" class="icon" />
+            <img src="/images/linkedin.svg" alt="linkedIn" class="icon" />
             <span>LinkedIn</span>
           </a>
         </li>

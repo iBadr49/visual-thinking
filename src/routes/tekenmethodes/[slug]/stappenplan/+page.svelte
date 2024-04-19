@@ -2,7 +2,6 @@
   import Breadcrumb from "$lib/atoms/breadcrumb.svelte";
   import MethodsHeader from "$lib/organisms/methodsHeader.svelte";
 
-
   export let data;
 
   // Variabele om de zichtbaarheid van stappenplan te regelen
@@ -44,8 +43,12 @@
 <article class="grid">
   <div class="flex-s">
     <div class="tags-b">
+
       <img class="icon" src="/icon1.svg" alt="icon" />
       <div class="wrapper-methods">
+
+      <img class="icon" src="/images/category.svg" alt="icon" />
+
       {#each data.methods as method}
         {#each method.categories as category}
           <h3 class="tag">
@@ -57,7 +60,7 @@
     </div>
 
     <div class="tags-b">
-      <img class="icon" src="/icon2.svg" alt="icon" />
+      <img class="icon" src="/images/materials.svg" alt="icon" />
       <h3 class="tag">
         {#each data.methods as method}
           {method.material}
@@ -66,7 +69,7 @@
     </div>
 
     <div class="tags-b">
-      <img class="icon" src="/icon3.svg" alt="icon" />
+      <img class="icon" src="/images/duration.svg" alt="icon" />
       <h3 class="tag">
         {#each data.methods as method}
           {method.duration}
@@ -75,7 +78,7 @@
     </div>
 
     <div class="tags-b">
-      <img class="icon" src="/icon4.svg" alt="icon" />
+      <img class="icon" src="/images/author.svg" alt="icon" />
       <h3 class="tag">Charley Muhren</h3>
     </div>
   </div>

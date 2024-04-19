@@ -129,6 +129,7 @@ main {
   padding: 0 1rem;
 }
 
+/* a11y */
 .sr-only {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);

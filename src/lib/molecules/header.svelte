@@ -5,7 +5,7 @@
   $: activeRoute = $page.route.id;
 </script>
 
-<a href="/" class="logo"><img src="/vtHBO-v1.0-Logo_1.svg"  alt="Visual Thinking Logo" /></a>
+<a href="/" class="logo"><img src="/images/visual-thinking-hbo-logo.svg"  alt="Visual Thinking Logo" /></a>
 
 <nav>
   <ul>

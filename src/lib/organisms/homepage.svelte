@@ -10,10 +10,10 @@
 
   <ul>
     <li>
-      <a href="/"><span><img src="man.svg" alt="man_image" /></span></a>
+      <a href="/"><span><img src="/images/man.svg" alt="man_image" /></span></a>
     </li>
     <li>
-      <a href="/"><span><img src="pencil.svg" alt="pencil_image" /></span></a>
+      <a href="/"><span><img src="/images/pencil.svg" alt="pencil_image" /></span></a>
     </li>
     <li>
       <a href="/over" style="--bg:#3F439D" class="highlight"
@@ -60,6 +60,8 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    /* margin-bottom: -30%; */
+
   }
 
   h1 {
@@ -286,9 +288,14 @@
   }
 
   /* desktop */
-  @media (width > 70em) {
+  @media (width > 80em) {
     article {
       margin-bottom: 20px;
+    }
+
+    header {
+      margin-bottom: -30%;
+
     }
 
     p {
@@ -305,7 +312,9 @@
 
       --cc: 4;
       --rc: 2;
-      margin-top: -50vh;
+      /* margin-top: -50vh; */
+
+      
     }
 
     ul li:nth-of-type(1) {
