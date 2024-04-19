@@ -179,12 +179,19 @@
     outline: none;
   }
 
+  article a {
+    display: block;
+  }
+
   .grid h2 {
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
     font-size: 19px;
     font-weight: 400;
     margin: 0;
+    hyphens: auto;
+    padding: 0.5em;
+    text-wrap: balance;
   }
 
   .grid {
@@ -194,9 +201,16 @@
     margin: 1rem 0;
   }
 
-  article img {
+  article picture {
+    display: block;
     width: 100%;
-    height: auto;
+  }
+  
+  article picture img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    object-fit: contain;
   }
 
   @media screen and (min-width: 36em) {
