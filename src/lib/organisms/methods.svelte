@@ -89,7 +89,7 @@
           {#if method.template && method.template.url}
             <picture>
               <img
-                src={method.template.url.replace(":webp", ":png")}
+                src={method.template.url.replace(":webp", ":jpg")}
                 alt={"Voorbeeld van " + method.title}
                 class={method.categories[0].title.replaceAll(" ", "-")}
               />
