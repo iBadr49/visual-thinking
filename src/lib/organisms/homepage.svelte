@@ -60,6 +60,8 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    /* margin-bottom: -30%; */
+
   }
 
   h1 {
@@ -286,9 +288,14 @@
   }
 
   /* desktop */
-  @media (width > 70em) {
+  @media (width > 80em) {
     article {
       margin-bottom: 20px;
+    }
+
+    header {
+      margin-bottom: -30%;
+
     }
 
     p {
@@ -305,7 +312,9 @@
 
       --cc: 4;
       --rc: 2;
-      margin-top: -50vh;
+      /* margin-top: -50vh; */
+
+      
     }
 
     ul li:nth-of-type(1) {
