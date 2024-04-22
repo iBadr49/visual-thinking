@@ -38,15 +38,6 @@
 
 
 <style>
-
-  span {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.7;
-    padding: 20px;
-    font-family: var(--vtPrimaryFont);
-  }
-
   ul li a {
     /* --bg: #e0dedc; */
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
@@ -170,14 +161,6 @@
 
   /* tablet mini */
   @media (width > 40em) {
-    h1 {
-      font-size: 3.157rem;
-    }
-
-    p {
-      max-width: 24rem;
-    }
-
     ul {
       --gap: 1.2rem;
       --tx: 0.275;
@@ -253,21 +236,7 @@
   }
 
   /* desktop */
-  @media (width > 80em) {
-    article {
-      margin-bottom: 20px;
-    }
-
-    header {
-      margin-bottom: -30%;
-
-    }
-
-    p {
-      max-width: 15rem;
-      font-size: 22px;
-    }
-
+  @media (width > 70em) {
     ul {
       --gap: 1rem;
       --size: 14em;
@@ -277,9 +246,6 @@
 
       --cc: 4;
       --rc: 2;
-      /* margin-top: -50vh; */
-
-      
       margin-top: -60vh;
     }
 
@@ -346,13 +312,11 @@
     }
 
     /* Hover effect voor de li -items  */
-
     ul li a:hover {
       transform: scale(1.1);
     }
 
     /* zodat de img <li> geen hover effect krijgen */
-
     ul li:nth-of-type(1):not(:hover),
     ul li:nth-of-type(2):not(:hover) {
       pointer-events: none;
