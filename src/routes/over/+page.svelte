@@ -1,6 +1,11 @@
 <script>
-  import About from "$lib/organisms/about.svelte";
+  import Breadcrumb from "$lib/atoms/breadcrumb.svelte";
+  import Introduction from "$lib/molecules/introduction.svelte";
+
+  export let data;
+
+  const {page} = data
 </script>
 
-<About />
-
+<Breadcrumb titel="Over" bgc="var(--vtSec-DarkBlue)" />
+<Introduction data={page}/>

@@ -2,19 +2,24 @@ import { gql } from "graphql-request";
 import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load() {
+
   let query = gql`
-  query MyQuery {
-    minicursussenPaginas {
-      id
-      slug
+  query MiniCourses {
+    page(where: {id: "clv8eb8jmw1hv07uncpsrut9l"}) {
       title
+      content {
+        html
+      }
+    }
+
+    miniCourses {
+      title
+      slug
     }
   }
-  `;
+`;
 
-  const request = await hygraph.request(query)
+  const data = await hygraph.request(query)
 
-  return{
-    request
-  };
+  return data;
 }

@@ -1,17 +1,9 @@
 <script>
-  import Breadcrumb from "$lib/atoms/breadcrumb.svelte";
   export let data;
 </script>
 
-<Breadcrumb titel="Artikelen" bgc="var(--vtDarkBlue)" />
-
-<header>
-    <h1>{data.articlePage.title}</h1>
-    <p>{data.articlePage.content.text}</p>
-</header>
-
 <div class="grid">
-  {#each data.articles as article}
+  {#each data as article}
   <a href="/artikelen/{article.slug}">
     <article>
       <img src={article.visual.url} alt="{article.title}" width="300px" height="200" />
@@ -22,17 +14,6 @@
 </div>
 
 <style>
-  header {
-    max-width: 43.75em;
-    width: 77%;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-    text-align: center;
-  }
-
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -77,10 +58,6 @@
 
   /* TABLET - STYLING */
   @media screen and (min-width: 36em) {   
-    h1 {
-      font-size: 3.157rem;
-    }
-
     .grid {
       grid-template-columns: repeat(2, 1fr); 
       margin:2rem auto;

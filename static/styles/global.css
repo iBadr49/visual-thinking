@@ -110,6 +110,9 @@ h3 {
 
 a {
   color: var(--vtYellow);
+  text-decoration: none;
+  color: black;
+  margin-bottom: 5px;
 }
 
 img {
@@ -154,4 +157,23 @@ svg.icon path {
 }
 svg.icon path.background {
   fill:var(--vtGrey-50)
+}
+
+/* hexagon stuff (work in progress) */
+.hexagons header {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+.hexagons h1 {
+  max-width:24rem;
+}
+.hexagons p {
+  text-align: center;
+}
+
+@media (width > 70em) {
+  .hexagons p {
+    max-width:12rem;
+  }
 }
