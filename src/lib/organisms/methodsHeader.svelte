@@ -54,6 +54,7 @@
     transition: transform 0.3s ease;
     padding:0;
     margin: 0 1rem;
+    gap:1.5rem;
   }
 
 

@@ -1,13 +1,5 @@
-<article>
-  <header>
-    <h1>Visual Thinking in het HBO</h1>
-    <p>
-      Visual thinking leert studenten en docenten hun gedachten en doelen te
-      verbeelden. Het helpt ze bij het creëren van overzicht en het overbrengen
-      van hun boodschap.
-    </p>
-  </header>
-
+<section>
+  <h2 class="sr-only">Visual Thinking Onderwerpen</h2>
   <ul>
     <li>
       <a href="/"><span><img src="/images/man.svg" alt="man_image" /></span></a>
@@ -42,46 +34,10 @@
       <a href="/tekenruimte" style="--bg:#e0dedc"><span>Tekenruimte</span></a>
     </li>
   </ul>
-</article>
+</section>
+
 
 <style>
-  article {
-    max-width: 80em;
-    position: relative;
-    color: #090940;
-    padding: 1rem 0;
-    margin: 0 auto;
-    margin-bottom: 20%;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 1.77rem;
-    margin: 0;
-    text-align: center;
-    max-width: 24rem;
-  }
-
-  span {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.7;
-    padding: 20px;
-    font-family: var(--vtPrimaryFont);
-  }
-
-  p {
-    text-align: center;
-    max-width: 30rem;
-  }
-
   ul li a {
     /* --bg: #e0dedc; */
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
@@ -94,6 +50,7 @@
     text-align: center;
     font-size: 1.25em;
     height: 100%;
+    transition:.25s;
   }
 
   ul li a.highlight {
@@ -131,6 +88,7 @@
 
     align-items: stretch;
     gap: var(--gap);
+    margin-bottom:5rem;
   }
 
   ul li {
@@ -305,7 +263,7 @@
 
       --cc: 4;
       --rc: 2;
-      margin-top: -50vh;
+      margin-top: -60vh;
     }
 
     ul li:nth-of-type(1) {

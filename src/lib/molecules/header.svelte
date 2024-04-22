@@ -5,18 +5,21 @@
   $: activeRoute = $page.route.id;
 </script>
 
-<a href="/" class="logo"><img src="/images/visual-thinking-hbo-logo.svg"  alt="Visual Thinking Logo" /></a>
+<header>
+  <a href="/" class="logo"><img src="/images/visual-thinking-hbo-logo.svg"  alt="Visual Thinking Logo" /></a>
 
-<nav>
-  <ul>
-    <li><a href="/tekenmethodes" class:active={activeRoute == "/tekenmethodes"}>Tekenmethodes</a></li>
-    <li><a href="/over" class:active={activeRoute == "/over"}>Over</a></li>
-    <li><a href="/minicursussen" class:active={activeRoute == "/minicursussen"}>Minicursussen</a></li>
-    <li><a href="/kennisclips" class:active={activeRoute == "/kennisclips"}>Kennisclips</a></li>
-    <li><a href="/artikelen" class:active={activeRoute == "/artikelen"}>Artikelen</a></li>
-    <li><a href="/tekenruimte" class:active={activeRoute == "/tekenruimte"}>Tekenruimte</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="/tekenmethodes" class:active={activeRoute == "/tekenmethodes"}>Tekenmethodes</a></li>
+      <li><a href="/over" class:active={activeRoute == "/over"}>Over</a></li>
+      <li><a href="/minicursussen" class:active={activeRoute == "/minicursussen"}>Minicursussen</a></li>
+      <li><a href="/kennisclips" class:active={activeRoute == "/kennisclips"}>Kennisclips</a></li>
+      <li><a href="/artikelen" class:active={activeRoute == "/artikelen"}>Artikelen</a></li>
+      <li><a href="/tekenruimte" class:active={activeRoute == "/tekenruimte"}>Tekenruimte</a></li>
+    </ul>
+  </nav>
+</header>
+
 
 <style>
   a {
@@ -136,7 +139,7 @@
     --state-color: var(--vtGrey);
   }
 
-  @media (min-width: 72.5em) {
+  @media (min-width: 80em) {
     a.logo {
       position: absolute;
       z-index:1;

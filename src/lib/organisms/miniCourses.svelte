@@ -1,83 +1,21 @@
 <script>
-  import Breadcrumb from "$lib/atoms/breadcrumb.svelte"
   export let data;
 </script>
 
-<Breadcrumb titel="Minicursussen" bgc="var(--vtRed)" />
-
-<article>
-  <header>
-    <h1>Minicursussen</h1>
-    <p>Maak een keuze uit een van de vier minicursussen</p>
-  </header>
-
+<section>
+  <h2 class="sr-only">Kies hier een minicursus</h2>
   <ul>
-    <li>
-      <a href="/minicursussen/{data.request.minicursussenPaginas[2].slug}" class="highlight"><span>{data.request.minicursussenPaginas[2].title}</span></a>
-    </li>
-    <li>
-      <a href="/minicursussen/{data.request.minicursussenPaginas[0].slug}" class="highlight"><span>{data.request.minicursussenPaginas[0].title}<span></a>
-    </li>
-    <li>
-      <a href="/minicursussen/{data.request.minicursussenPaginas[3].slug}" class="highlight"><span>{data.request.minicursussenPaginas[3].title}</span></a>
-    </li>
-    <li>
-      <a href="/minicursussen/{data.request.minicursussenPaginas[1].slug}" class="highlight"><span>{data.request.minicursussenPaginas[1].title}</span></a>
-    </li>
+    {#if data && data.length > 0}
+      {#each data as course, index}
+        <li><a href="/minicursussen/{course.slug}"><span>{course.title}</span></a></li>
+      {/each}
+    {/if}
   </ul>
-</article>
+</section>
 
 <style>
-  article {
-    max-width: 80em;
-    position: relative;
-    color: #090940;
-    padding: 1rem 0;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 1.777rem;
-    margin: 0;
-    text-align: center;
-    max-width: 35rem;
-  }
-
-  p {
-    text-align: center;
-    max-width: 12rem;
-  }
-
-  ul li a {
-    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-    background: var(--vtRed);
-    /*   aspect-ratio: 1 / 1; */
-    display: grid;
-    text-decoration: none;
-    color: inherit;
-    padding: 2rem 0;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    height: 100%;
-    font-family: var(--vtPrimaryFont);
-
-  }
-  ul li a.highlight {
-    color: #fff;
-  }
-
-  ul li a span {
-    place-self: center;
+  section {
+    padding:0 0 8rem;
   }
 
   ul {
@@ -97,11 +35,9 @@
       calc(var(--size) * var(--ch) + var(--gap) * 1)
     );
     justify-content: center;
-
     list-style: none;
     padding: 0;
     width: 100%;
-
     align-items: stretch;
     gap: var(--gap);
   }
@@ -111,14 +47,42 @@
     height: calc(var(--size) * 1.1);
   }
 
+  ul li a {
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background: var(--vtRed);
+    display: grid;
+    text-decoration: none;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    height: 100%;
+    font-family: var(--vtPrimaryFont);
+    transition:.25s;
+  }
+
+    ul li:nth-of-type(2) a {
+      background: var(--vtLightBlue);
+    }
+
+    ul li:nth-of-type(3) a {
+      background: var(--vtYellow);
+    }
+
+    ul li:nth-of-type(4) a {
+      background: var(--vtDarkBlue);
+    }
+
+  ul li a span {
+    place-self: center;
+  }
+
   @media (width > 35rem) {
     ul {
       --rc: 2;
       --cc: 2;
     }
-    h1 {
-    font-size: 3.157rem;
-  }
   }
 
   @media (width > 60em) {
@@ -131,16 +95,11 @@
 
       --cc: 4;
       --rc: 2;
-      margin-top: -21vh;
+      margin-top: -28vh;
     }
     
     ul li a:hover {
-    /* background-color: var(--vtSec-Red); */
-    transform: scale(1.1);
-  }
-
-    p{
-      top: 20%;
+      transform: scale(1.1);
     }
 
     ul li:nth-of-type(1) {
