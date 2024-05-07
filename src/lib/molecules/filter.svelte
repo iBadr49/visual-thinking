@@ -15,6 +15,7 @@
     const params = new URLSearchParams();
     filter.forEach((cat) => params.append("categorie", cat));
     window.history.pushState({}, "", `${window.location.pathname}?${params}`);
+    location.reload();
   }
  
 </script>
@@ -39,5 +40,6 @@
 </section>
 
 <style>
-  
+
+
 </style>
