@@ -17,6 +17,14 @@
     window.history.pushState({}, "", `${window.location.pathname}?${params}`);
     location.reload();
   }
+
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      event.target.checked = !event.target.checked;
+      updateFilter(event);
+    }
+  }
  
 </script>
 
@@ -32,6 +40,8 @@
           value={category.slug}
           checked={filter.includes(category.slug)}
           on:change={updateFilter}
+          on:keydown={handleKeyDown}
+          tabindex="0"
         />
         {category.title}
       </label>
