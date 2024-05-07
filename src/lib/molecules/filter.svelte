@@ -31,7 +31,6 @@
 
     showJs.classList.add("js-active");
   });
-
 </script>
 
 <section>
@@ -58,8 +57,7 @@
 <span class="js-active"></span>
 
 <style>
-
-section {
+  section {
     display: none;
   }
 
@@ -67,4 +65,42 @@ section {
     display: block;
   }
 
+  h2 {
+    font-size: 1em;
+  }
+
+  /* CSS voor de form */
+  section form {
+    display: flex;
+    gap: 0.3rem;
+    overflow-x: auto;
+  }
+
+  label input {
+    margin-right: 5px;
+  }
+
+  /* CSS voor de form label */
+  section form label {
+    display: flex;
+    white-space: nowrap;
+    padding: 7px;
+    border: 1px solid transparent;
+    align-items: center;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+
+  section form label:hover,
+  section form label:focus-visible,
+  section form label:active {
+    border-color: var(--vtGrey);
+    background: var(--vtGrey-10);
+  }
+
+  @media screen and (min-width: 36em) {
+    section form {
+      flex-wrap: wrap;
+    }
+  }
 </style>
