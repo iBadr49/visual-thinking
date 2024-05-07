@@ -2,11 +2,12 @@ import { gql } from "graphql-request";
 import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load({ url }) {
-  const category = url.searchParams.get('categorie') || null;
+  const categories = url.searchParams.getAll('categorie') || [];
   let filter = '';
 
-  if (category !== null) {
-      filter = `, where: {categories_some: {slug: "${category}"}}`;
+  if (categories.length > 0) {
+    const categoryFilters = categories.map(category => `{slug: "${category}"}`).join(',');
+    filter = `, where: {categories_some: {OR: [${categoryFilters}]}}`;
   }
 
   let query = gql`
@@ -32,8 +33,13 @@ export async function load({ url }) {
         width
       }
     }
+    categories(first: 10){
+      slug
+      title
+    }
   }`;
 
+  console.log(query)
   const data = await hygraph.request(query);
 
   return data;
