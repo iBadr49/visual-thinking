@@ -25,7 +25,13 @@
       updateFilter(event);
     }
   }
- 
+
+  onMount(() => {
+    let showJs = document.querySelector("section");
+
+    showJs.classList.add("js-active");
+  });
+
 </script>
 
 <section>
@@ -49,7 +55,16 @@
   </form>
 </section>
 
+<span class="js-active"></span>
+
 <style>
 
+section {
+    display: none;
+  }
+
+  .js-active {
+    display: block;
+  }
 
 </style>
