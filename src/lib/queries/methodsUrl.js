@@ -10,6 +10,9 @@ export default function getQueryUrl(gql, slug) {
           template {
             url
           }
+          pdf {
+            url
+          }
           description {
             html
           }
