@@ -9,7 +9,7 @@
 
 <div>
   <header>
-      <h1>{data.miniCourse.title}</h1>
+      <h1>{data.miniCourse?.title}</h1>
   </header>
 
   {#if data.miniCourse && data.miniCourse.slides}

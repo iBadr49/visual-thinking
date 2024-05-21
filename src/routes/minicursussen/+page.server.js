@@ -2,24 +2,23 @@ import { gql } from "graphql-request";
 import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load() {
+  const query = gql`
+    query MiniCourses {
+      page(where: {id: "clv8eb8jmw1hv07uncpsrut9l"}) {
+        title
+        content {
+          html
+        }
+      }
 
-  let query = gql`
-  query MiniCourses {
-    page(where: {id: "clv8eb8jmw1hv07uncpsrut9l"}) {
-      title
-      content {
-        html
+      miniCourses {
+        title
+        slug
       }
     }
+  `;
 
-    miniCourses {
-      title
-      slug
-    }
-  }
-`;
+  const { page, miniCourses } = await hygraph.request(query);
 
-  const data = await hygraph.request(query)
-
-  return data;
+  return { page, miniCourses };
 }
