@@ -2,20 +2,24 @@
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   export let data;
+  let formElement;
 
   let filter = $page.url.searchParams.getAll("categorie") || [];
 
   function updateFilter(event) {
-    const checkboxValue = event.target.value;
-    if (event.target.checked) {
-      filter = [...filter, checkboxValue];
-    } else {
-      filter = filter.filter((category) => category !== checkboxValue);
-    }
-    const params = new URLSearchParams();
-    filter.forEach((cat) => params.append("categorie", cat));
-    window.history.pushState({}, "", `${window.location.pathname}?${params}`);
-    location.reload();
+    // formElement.submit()
+    // array.forEach(element => {
+    //   const checkboxValue = event.target.value;
+    //   if (event.target.checked) {
+    //     filter = [...filter, checkboxValue];
+    //   } else {
+    //     filter = filter.filter((category) => category !== checkboxValue);
+    //   }
+    //   const params = new URLSearchParams();
+    //   filter.forEach((cat) => params.append("categorie", cat));
+    //   window.history.pushState({}, "", `${window.location.pathname}?${params}`);
+    //   location.reload();
+    // });
   }
 
   function handleKeyDown(event) {
@@ -31,12 +35,14 @@
 
     showJs.classList.add("js-active");
   });
+
+  
 </script>
 
 <section>
   <h2 id="methodes">Filter op categorie</h2>
 
-  <form>
+  <form method="POST" action="/tekenmethodes" >
     {#each data.categories as category}
       <label for={category.slug}>
         <input
@@ -44,6 +50,7 @@
           id={category.slug}
           value={category.slug}
           checked={filter.includes(category.slug)}
+          name="category"
           on:change={updateFilter}
           on:keydown={handleKeyDown}
           tabindex="0"
@@ -51,6 +58,9 @@
         {category.title}
       </label>
     {/each}
+    <button>
+      Pas filters toe
+    </button>
   </form>
 </section>
 
