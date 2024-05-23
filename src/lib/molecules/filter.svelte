@@ -3,12 +3,23 @@
   export let data
 
   let filter = $page.url.searchParams.getAll("categorie") || []
+  function applyFilter() {
+    return function(event) {
+      event.preventDefault()
+      const formData = new FormData(event.target)
+      const categorie = formData.getAll("categorie")
+      const url = new URL(window.location)
+      url.searchParams.delete("categorie")
+      categorie.forEach((slug) => url.searchParams.append("categorie", slug))
+      window.location = url
+    }
+  }
 </script>
 
 <section>
   <h2 id="methodes">Filter op categorie</h2>
 
-  <form method="GET" action="/tekenmethodes#methodes">
+  <form method="GET" action="/tekenmethodes#methodes"  on:submit={applyFilter()}>
     {#each data.categories as category}
       <label for={category.slug}>
         <input
@@ -68,11 +79,6 @@ section button {
 section button:hover {
   background-color: var(--vtYellow-80);
 }
-
-
-
-
-
 
 </style>
 
