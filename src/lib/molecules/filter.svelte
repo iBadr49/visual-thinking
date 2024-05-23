@@ -14,6 +14,14 @@
       window.location = url
     }
   }
+
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      event.target.checked = !event.target.checked;
+      updateFilter(event);
+    }
+  }
 </script>
 
 <section>
@@ -28,6 +36,7 @@
           value={category.slug}
           checked={filter.includes(category.slug)}
           name="categorie"
+          on:keydown={handleKeyDown}
           tabindex="0"
         />
         {category.title}
