@@ -3,7 +3,7 @@
 </script>
 
 <section class="grid">
-  <h2>Alle methodes ({data.length})</h2>
+  <h2>Alle methodes <small>({data.length})</small></h2>
   {#if data && data.length > 0}
     {#each data as method, index}
       <article class="methods-container" data-index={index}>
@@ -42,8 +42,14 @@
 
   h2 {
     grid-column: 1 / -1;
+    display:flex;
+    align-items:baseline;
+    gap:.5rem;
   }
-
+  h2 small {
+    font-size: 1rem;
+    translate: 0 -3px
+  }
   h3 {
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
