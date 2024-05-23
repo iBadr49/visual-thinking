@@ -1,15 +1,47 @@
 import { gql } from "graphql-request";
 import { hygraph } from "$lib/utils/hygraph.js";
-import { load } from "$lib/queries/load.js";
 
-export const actions = {
-  default: async ({request, form}) => {
-    const formData = await request.formData();
 
-    const data = formData.getAll('category')
 
-    return form
-  },
-};
+export async function load({ url }) {
+  const categories = url.searchParams.getAll('categorie')
+  let filter
 
-export { load };
+  categories && categories.length > 0 
+          ? filter = `, where: {categories_some: {slug_in: ${JSON.stringify(categories)}}}` 
+          : filter = ''
+
+  let query = gql`
+    query Methods() {
+      page(where: { id: "clv89bh0vn4z007unrv85gsw1" }) {
+        title
+        content {
+          html
+        }
+      }
+      methods(first: 100 ${filter}) {
+        id
+        slug
+        title
+        categories {
+          title
+          id
+        }
+        template {
+          url(transformation: { document: { output: { format: webp } } })
+          height
+          width
+        }
+      }
+      categories(first: 10) {
+        slug
+        title
+      }
+    }
+  `
+
+  const data = await hygraph.request(query, { categories });
+  return data;
+}
+
+  
