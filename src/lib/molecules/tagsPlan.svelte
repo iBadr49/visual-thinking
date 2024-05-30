@@ -142,7 +142,7 @@
     flex-flow: row wrap;
   }
 
-  p{
+  p {
     background-color: var(--vtYellow-80);
     color: var(--vtDarkBlue);
     font-family: var(--vtPrimaryFont);
@@ -155,10 +155,9 @@
   }
 
 
-  /* svg {
-    width: 50px;
-    height: 55px;
-  } */
+  svg {
+    /* flex-shrink: 0; */
+  }
 
   @media (min-width: 1186px) {
     .tags-container {
