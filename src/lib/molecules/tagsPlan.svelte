@@ -1,13 +1,20 @@
 <script>
   export let data;
+  // Functie om underscores te verwijderen en de eerste letter van het eerste woord hoofdletter te maken
+  function formatMaterial(material) {
+    // Verwijder underscores
+    let formatted = material.replace(/_/g, " ");
+    // Zet de eerste letter van de string in hoofdletters
+    return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+  }
 </script>
 
 <ul class="tags-container">
   <!-- Categories Section -->
   <li class="tags-group">
     <svg
-    width="50"
-    height="55"
+      width="50"
+      height="55"
       viewBox="0 0 32 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +32,11 @@
     <div class="span-box">
       {#each data.methods as method}
         {#each method.categories as category}
-        <p>{category.title}</p>
+          <p>{category.title}</p>
         {/each}
       {/each}
     </div>
-</li>
-
+  </li>
   <!-- Materials Section -->
   <li class="tags-group">
     <svg
@@ -60,7 +66,7 @@
 
     {#each data.methods[0].material as material}
       <div class="span-box">
-        <p>{material}</p>
+        <p>{formatMaterial(material)}</p>
       </div>
     {/each}
   </li>
@@ -123,7 +129,6 @@
 </ul>
 
 <style>
-
   .tags-container {
     display: flex;
     flex-direction: column;
@@ -153,7 +158,6 @@
     margin: 0.7rem -0.3rem 0.7rem 0.7rem;
     max-width: fit-content;
   }
-
 
   svg {
     flex-shrink: 0;
