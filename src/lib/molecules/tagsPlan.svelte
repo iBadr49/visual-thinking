@@ -156,7 +156,7 @@
 
 
   svg {
-    /* flex-shrink: 0; */
+    flex-shrink: 0;
   }
 
   @media (min-width: 1186px) {
