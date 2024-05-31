@@ -1,6 +1,6 @@
 <script>
   import Breadcrumb from "$lib/atoms/breadcrumb.svelte";
-  import MethodsHeader from "$lib/organisms/methodsHeader.svelte";
+  import MethodHeader from "$lib/organisms/methodHeader.svelte";
   import TagsPlan from "$lib/molecules/tagsPlan.svelte";
   import Steps from "$lib/molecules/steps.svelte";
 
@@ -9,7 +9,7 @@
 
 <Breadcrumb titel="Overzicht" url="/tekenmethodes" bgc="var(--vtYellow)" />
 
-<MethodsHeader {data} />
+<MethodHeader {data} />
 
 <section class="grid">
   <div class="sticky">

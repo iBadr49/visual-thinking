@@ -1,18 +1,14 @@
 <script>
   export let data;
+  const method = data.method
 </script>
 
 <header>
 
-  <h1>
-    {#each data.methods as method}
-      {method.title}
-    {/each}
-  </h1>
+  <h1>{method.title}</h1>
 
   <nav>
     <ul>
-      {#each data.methods as method}
         <li>
           <a href="/tekenmethodes/{method.slug}">
             <h2>Beschrijving</h2>
@@ -28,7 +24,11 @@
             <h2 class="bottom">Voorbeelden</h2>
           </a>
         </li>
-      {/each}
+
+        {#if method.pdf}
+          <a href="{method.pdf.url}" download="{method.slug}.pdf" target="blank" class="button-pdf">Download</a>
+        {/if}
+      
     </ul>
   </nav>
 </header>
@@ -88,6 +88,21 @@
     font-weight: 100;
   }
 
+  .button-pdf {
+	  color: white;
+	  font-family: var(--vtPrimaryFont);
+	  background-color: var(--vtDarkBlue);
+    padding: 0.5em 0.4em ;
+	  border-radius: 0.2em;
+	  margin-left: 1em;
+    margin-bottom: 0.5em;
+	}
+  
+	:hover .button-pdf {
+	  color: var(--vtDarkBlue);
+	  background-color: rgb(188, 188, 188);
+	}
+  
   @media (min-width: 31em) {
     h1 {
       padding-top: 2rem;
