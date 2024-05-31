@@ -1,6 +1,6 @@
 <script>
   import Breadcrumb from "$lib/atoms/breadcrumb.svelte";
-  import MethodsHeader from "$lib/organisms/methodsHeader.svelte";
+  import MethodHeader from "$lib/organisms/methodHeader.svelte";
 
   export let data;
 
@@ -37,7 +37,7 @@
   bgc="var(--vtYellow)"
 />
 
-<MethodsHeader {data} />
+<MethodHeader {data} />
 
 
 <article class="grid">
