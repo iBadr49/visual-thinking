@@ -11,7 +11,7 @@
           {#if method.template && method.template.url}
             <picture>
               <img
-                src={method.template.url.replace(":webp", ":jpg")}
+                src={method.template.url.replace(":webp", ":png")}
                 alt={"Voorbeeld van " + method.title}
                 class={method.categories[0].title.replaceAll(" ", "-")}
               />
@@ -36,21 +36,20 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin: 1rem 0;
-    text-wrap: balance;
-    hyphens: auto;
   }
 
   h2 {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1
   }
 
   h3 {
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
+    font-size: 19px;
     font-weight: 400;
     margin: 0;
-    width: 100%;
-    padding: 0 0.5em ;
+    width:100%;
+    
   }
 
   a {
@@ -72,23 +71,9 @@
     outline: none;
   }
 
-  article a {
-    display: block;
-  }
-
-  article picture {
-    display: block;
-  }
-
   article img {
     width: 100%;
-  }
-
-  article picture img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 16/9;
-    object-fit: contain;
+    height: auto;
   }
 
   @media screen and (min-width: 36em) {
