@@ -16,9 +16,11 @@
     {#each data.miniCourse.slides as slide, index}
       <article>
         <h2>{slide.title}</h2>
-        {@html slide.content.html}
+        <div class="slide-content">
+          {@html slide.content.html}
+        </div>
         {#if slide.image && slide.image.url.length > 0}
-          <img src={slide.image.url} alt="" />
+          <img src={slide.image.url} alt="gifs" />
         {/if}
       </article>
     {/each}
@@ -30,23 +32,35 @@
     max-width: 43.75em;
     margin: 0 auto;
   }
+
   h1 {
-    margin: 1rem;
     font-size: 1.7em;
     text-transform: capitalize;
   }
 
   h2 {
     font-size: 1.25em;
+    text-align: center; 
   }
 
   article {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch; 
     line-height: 1.5;
     margin: 1rem 0;
     padding: 1rem;
     border: 1px solid var(--vtDarkBlue);
+  }
+
+  .slide-content {
+    text-align: left;
+    width: 100%;
+  }
+
+  img {
+    display: block;
+    margin: 1rem auto; /* Center image */
+    max-width: 100%;
   }
 </style>
