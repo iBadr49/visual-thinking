@@ -96,12 +96,6 @@ blockquote {
   color: #625c51;
 }
 
-.minicursus-quotes:after {
-  content: "”";
-  right: -5rem;
-  bottom: -0.4rem;
-}
-
 blockquote:before,
 blockquote:after {
   position: absolute;
